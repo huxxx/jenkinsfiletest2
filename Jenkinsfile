@@ -8,7 +8,6 @@ pipeline {
 		}
 		stage('Build') {
             steps {
-                sh 'echo "build jenkinsfiletest2"'
 				sh "sudo mvn clean install deploy"
             }
         }
