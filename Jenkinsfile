@@ -8,7 +8,7 @@ pipeline {
 		}
 		stage('Build') {
             steps {
-				sh "sudo mvn clean install deploy"
+				 sh 'echo "Hello World"'
             }
         }
         stage('Test') {
