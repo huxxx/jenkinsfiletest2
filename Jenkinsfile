@@ -2,7 +2,9 @@ pipeline {
     agent any
     stages {
 		stage("checkout"){
-			git branch: '${BRANCH_NAME}', credentialsId: '5f2507246ebe2e1345d8455ab288f7bdcfeb83cd', url: 'git@github.com:huxxx/jenkinsfiletest2.git'
+			steps {
+				git branch: '${BRANCH_NAME}', credentialsId: '5f2507246ebe2e1345d8455ab288f7bdcfeb83cd', url: 'git@github.com:huxxx/jenkinsfiletest2.git'
+			}
 		}
 		stage('Build') {
             steps {
