@@ -23,7 +23,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<docker.image.prefix>112.124.114.206:8081</docker.image.prefix>
+		<docker.image.prefix>47.100.49.91:5000</docker.image.prefix>
 		<docker.username>admin</docker.username>
 		<docker.password>admin123</docker.password>
 	</properties>
