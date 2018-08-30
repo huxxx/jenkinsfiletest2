@@ -70,6 +70,7 @@
 							<username>${docker.username}</username>
 							<password>${docker.password}</password>
 							<repository>${docker.image.prefix}/${project.artifactId}</repository>
+							<dockerHost>http://47.100.49.91:2375</dockerHost>
 							<tag>${project.version}</tag>
 							<buildArgs>
 								<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
