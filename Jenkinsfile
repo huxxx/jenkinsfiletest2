@@ -13,9 +13,9 @@ node {
       mvnHome = tool 'apache-maven-3.5.4'
 	  // Run the maven build
       if (isUnix()) {
-         sh "'${mvnHome}/bin/mvn' -Dmaven.test.skip=true clean package deploy -Pdocker"
+         sh "'${mvnHome}/bin/mvn' -Dmaven.test.skip=true clean package install -Pdocker"
       } else {
-         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.skip=true clean package deploy -Pdocker/)
+         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.skip=true clean package install -Pdocker/)
       }
    }
    stage('Results') {
