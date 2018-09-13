@@ -14,4 +14,4 @@ RUN echo "Asia/Shanghai" >> /etc/timezone
 VOLUME ["/data/logs"]
 
 ENV JAVA_OPTS -Dspring.profiles.active=test
-ENTRYPOINT ["/bin/sh","java","$JAVA_OPTS","-jar","/microservice-simple-provider-user.jar"]
+ENTRYPOINT ["/bin/sh","java","$JAVA_OPTS","-jar","/mavendockerplugindemo.jar"]
