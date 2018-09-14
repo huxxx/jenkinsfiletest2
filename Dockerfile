@@ -1,4 +1,4 @@
-FROM hub.c.163.com/wuxukun/maven-aliyun:3-jdk-8
+FROM java:8
 MAINTAINER huxin <491037720@qq.com>
 
 #update system timezone
@@ -13,5 +13,10 @@ RUN echo "Asia/Shanghai" >> /etc/timezone
      
 VOLUME ["/data/logs"]
 
+ARG JAR_FILE
+ADD ${JAR_FILE} /app/mavendockerplugindemo.jar
+WORKDIR /app/
+EXPOSE 8889
+
 ENV JAVA_OPTS -Dspring.profiles.active=test
-ENTRYPOINT ["/bin/sh","java","$JAVA_OPTS","-jar","/mavendockerplugindemo.jar"]
+ENTRYPOINT ["java","-jar","./mavendockerplugindemo.jar"]
