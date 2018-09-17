@@ -7,7 +7,7 @@ node {
    def dockerImageTag = "${dockerRepoUrl}/${dockerImageName}:2.0"
     
    stage('checkout') {
-      git branch: '${BRANCH_NAME}', credentialsId: 'd2cf56e42afddc1a0f34b03537221b8310ec1648', url: 'https://github.com/huxxx/jenkinsfiletest2.git'
+      git branch: '${BRANCH_NAME}', credentialsId: 'a7807ca4-de23-4d80-b1eb-82ce5d952064', url: 'https://github.com/huxxx/jenkinsfiletest2.git'
    }
    stage('maven-build') {
       mvnHome = tool 'apache-maven-3.5.4'
