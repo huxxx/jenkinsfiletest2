@@ -16,7 +16,7 @@ node {
       }
    }
    stage('clean'){
-	  sh "docker rmi $(docker images 192.168.232.136:5000/mavendockerplugindemo -q)  || true"
+	  sh 'docker rmi $(docker images 192.168.232.136:5000/mavendockerplugindemo -q)  || true'
    }
    stage('Results') {
       //junit '**/target/surefire-reports/TEST-*.xml'
