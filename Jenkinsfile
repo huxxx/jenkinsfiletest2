@@ -24,7 +24,7 @@ node {
    }
    stage('Build Docker Image') {
       // build docker image
-      sh "mv ./target/mavendockerplugindemo*.jar ./workspace" 
+      sh "mv ./target/mavendockerplugindemo*.jar /workspace" 
       //dockerImage = docker.build("jenkinsfiletest2")
    }
    stage('Deploy Docker Image'){
