@@ -16,6 +16,7 @@ node {
       }
    }
    stage('clean'){
+   	  sh 'docker rm $(docker ps | grep myweb-app)'
 	  sh 'docker rmi $(docker images 192.168.232.136:5000/mavendockerplugindemo -q)  || true'
    }
    stage('Results') {
