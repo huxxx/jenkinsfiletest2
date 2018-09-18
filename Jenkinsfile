@@ -20,7 +20,7 @@ node {
       //archive 'target/*.jar'
    }
    stage('Move Jar To Workspace') {
-      sh "mkdir -p /workspace && mv ./target/${dockerImageName}.jar /workspace" 
+      sh "mkdir -p /workspace && mv ./target/${dockerImageName}*.jar /workspace" 
    }
    stage('Deploy Docker Image'){
       // deploy docker image to nexus
