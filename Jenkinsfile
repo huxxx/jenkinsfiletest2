@@ -2,7 +2,7 @@ node {
    def mvnHome
 
    def dockerImage
-   def dockerRepoUrl = "47.100.49.91:5000"
+   def dockerRepoUrl = "192.168.232.136:5000"
    def dockerImageName = "mavendockerplugindemo"
    def dockerImageTag = "${dockerRepoUrl}/${dockerImageName}:2.0"
     
