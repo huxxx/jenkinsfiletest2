@@ -1,7 +1,5 @@
 node {
-   def mvnHome
-
-   def dockerImage
+   def mvnHome = tool 'apache-maven-3.5.4'
    def dockerRepoUrl = "192.168.232.136:5000"
    def dockerImageName = "mavendockerplugindemo"
    def dockerImageTag = "${dockerRepoUrl}/${dockerImageName}:2.0"
@@ -10,7 +8,6 @@ node {
       git branch: '${BRANCH_NAME}', credentialsId: 'a7807ca4-de23-4d80-b1eb-82ce5d952064', url: 'https://github.com/huxxx/jenkinsfiletest2.git'
    }
    stage('maven-build') {
-      mvnHome = tool 'apache-maven-3.5.4'
 	  // Run the maven build
       if (isUnix()) {
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.skip=true clean package install "
@@ -22,10 +19,8 @@ node {
       //junit '**/target/surefire-reports/TEST-*.xml'
       //archive 'target/*.jar'
    }
-   stage('Build Docker Image') {
-      // build docker image
-      sh "mv ./target/mavendockerplugindemo*.jar /workspace" 
-      //dockerImage = docker.build("jenkinsfiletest2")
+   stage('Move Jar To Workspace') {
+      sh "mkdir -p /workspace && mv ./target/${dockerImageName}.jar /workspace" 
    }
    stage('Deploy Docker Image'){
       // deploy docker image to nexus
