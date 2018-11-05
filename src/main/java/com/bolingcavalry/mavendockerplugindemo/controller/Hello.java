@@ -20,7 +20,7 @@ public class Hello {
     private JdbcTemplate jdbcTemplate;
 	
 	@RequestMapping("/userlist")
-    public String getUserList(ModelMap map){
+    public List<User> getUserList(ModelMap map){
         String sql = "SELECT * FROM user";
         List<User> userList = jdbcTemplate.query(sql, new RowMapper<User>() {
             User user = null;
@@ -36,7 +36,7 @@ public class Hello {
             System.out.println(user.getName());
         }
         map.addAttribute("users", userList);
-        return "user";
+        return userList;
     }
 
     @RequestMapping("/")
