@@ -1,5 +1,4 @@
 def label = "mavendocker-${UUID.randomUUID().toString()}"
-agent {
     node {
         label ${label}
         tools {
@@ -43,4 +42,3 @@ agent {
 	        }
     	}
     }
-}
