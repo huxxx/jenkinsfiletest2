@@ -3,6 +3,7 @@ node {
    def dockerRepoUrl = "192.168.232.136:5000"
    def dockerImageName = "mavendockerplugindemo"
    def dockerImageTag = "${dockerRepoUrl}/${dockerImageName}:2.0"
+   def containerId = $(docker ps -a | grep "myweb-*" | awk '{print $1}')
     
    stage('checkout') {
       git branch: '${BRANCH_NAME}', credentialsId: 'a7807ca4-de23-4d80-b1eb-82ce5d952064', url: 'https://github.com/huxxx/jenkinsfiletest2.git'
@@ -16,8 +17,14 @@ node {
       }
    }
    stage('clean'){
-   	  sh 'docker rm -f $(docker ps -a |  grep "myweb-*"  | awk '{print $1}') || true'
+   	  // sh 'docker rm -f $(docker ps -a |  grep "myweb-*"  | awk '{print $1}') || true'
 	  // sh 'docker rmi $(docker images 192.168.232.136:5000/mavendockerplugindemo -q)  || true'
+	  if(${containerId} ！= "") {
+	      docker rm -f ${containerId}
+		  sleep 3s
+	  } else {
+	      echo "not exist containerId！"
+	  }
    }
    stage('Results') {
       //junit '**/target/surefire-reports/TEST-*.xml'
